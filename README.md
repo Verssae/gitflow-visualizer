@@ -57,3 +57,4 @@ poetry run python analyize_workflow.py -t team_info.json -n "Team 1"
 
 ## To Do
 - [ ] Docs for `get_commits.py`
+- [ ] Time slicing & Commit slicing
