@@ -8,9 +8,14 @@ This is a CLI tool to visualize the workflow of a team's GitHub activity.
 
 ## Installation
 ```
+# Font 
 brew tap homebrew/cask-fonts
-brew install --cask firacode-nerd-font
+brew install font-fira-code-nerd-font
 
+# If you don't have iterm2
+brew install --cask iterm2
+
+# python package manager
 brew install poetry
 
 poetry install
