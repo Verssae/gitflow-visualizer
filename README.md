@@ -3,7 +3,11 @@
 
 The **gitflow-visualizer** is a Python-based tool designed to visually analyze and track the workflow of a GitHub repository. It displays branch activities (e.g., branch creation, deletion, pull request merges) and other important events, allowing teams to easily understand the history of the repository's development process. For more information, see [GitHub API - List repository activities](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repository-activities).
 
-![rich](./images/rich.png)
+```bash
+gitflow-visualizer https://github.com/Textualize/rich --start_date 2024-08-01 --end_date 2024-09-22
+```
+
+![rich](./images/example.png)
 
 ## Table of Contents
 
@@ -41,7 +45,7 @@ Or, if you prefer to install the latest development version from the GitHub repo
 ```bash
 git clone https://github.com/Verssae/gitflow-visualizer.git
 cd gitflow-visualizer
-pip install -r requirements.txt
+pip install .
 ```
 
 ### GitHub Token
