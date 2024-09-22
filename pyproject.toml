@@ -1,6 +1,6 @@
 [project]
 name = "gitflow-visualizer"
-version = "0.1.0"
+version = "0.1.2"
 description = "Visualize GitHub Repository Workflow Activities"
 authors = [
     { name = "verssae", email = "sparky@hanyang.ac.kr" }
@@ -9,8 +9,10 @@ dependencies = [
     "rich>=13.8.1",
     "requests>=2.32.3",
 ]
-readme = "README.md"
+readme = "README_PYPI.md"
 requires-python = ">= 3.8"
+license = { file = "LICENSE" }
+homepage = "https://github.com/Verssae/gitflow-visualizer"
 
 [build-system]
 requires = ["hatchling"]
