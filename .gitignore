@@ -5,3 +5,9 @@
 
 # OS generated files #
 .DS_Store
+.venv/
+
+# python #
+__pycache__/
+
+.python-version

@@ -1,7 +1,7 @@
-# GitHub Activity Workflow Visualizer
+# gitflow-visualizer
 
 
-The **GitHub Activity Workflow Visualizer** is a Python-based tool designed to visually analyze and track the workflow of a GitHub repository. It displays branch activities (e.g., branch creation, deletion, pull request merges) and other important events, allowing teams to easily understand the history of the repository's development process. For more information, see [GitHub API - List repository activities](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repository-activities).
+The **gitflow-visualizer** is a Python-based tool designed to visually analyze and track the workflow of a GitHub repository. It displays branch activities (e.g., branch creation, deletion, pull request merges) and other important events, allowing teams to easily understand the history of the repository's development process. For more information, see [GitHub API - List repository activities](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repository-activities).
 
 ![rich](./images/rich.png)
 
@@ -10,8 +10,6 @@ The **GitHub Activity Workflow Visualizer** is a Python-based tool designed to v
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Example 1: Core Branch Visualization](#example-1-core-branch-visualization)
-  - [Example 2: Date Range Filtering](#example-2-date-range-filtering)
 - [Customization](#customization)
 - [Font Recommendation](#font-recommendation)
 - [License](#license)
@@ -30,47 +28,44 @@ The **GitHub Activity Workflow Visualizer** is a Python-based tool designed to v
 - Highlight active branches
 - Abstract branch name like `release`, `hotfix`, and `feature` for better visualization.
 
-## Installation
+## Installation 
 
-This project uses `poetry` for package management and dependency installation. Make sure you have `poetry` installed. If not, you can install it [here](https://python-poetry.org/docs/#installation).
-
-### Step 1: Clone the Repository
+You can install the latest stable version of **gitflow-visualizer** from PyPI:
 
 ```bash
-git clone https://github.com/YourUsername/GitHub-Activity-Workflow-Visualizer.git
-cd GitHub-Activity-Workflow-Visualizer
+pip install gitflow-visualizer
 ```
 
-### Step 2: Install Dependencies
-
-Run the following command to install the project dependencies via `poetry`:
+Or, if you prefer to install the latest development version from the GitHub repository, use:
 
 ```bash
-poetry install
+git clone https://github.com/Verssae/gitflow-visualizer.git
+cd gitflow-visualizer
+pip install -r requirements.txt
 ```
 
-This will install the necessary dependencies, including `requests`, `rich`, and other libraries specified in `pyproject.toml`. You can use any other package manager or virtual environment if you prefer.
+### GitHub Token
+You can pass a GitHub API token directly using the `--token` option for increased rate limits or to access private repositories.
 
-### Step 3: Configure Environment Variables
+Alternatively, you can set the `GITHUB_TOKEN` environment variable, and the tool will use it automatically if `--token` is not provided.
 
-Create a `.env` file in the project root and add your GitHub token. The GitHub token is necessary to access the GitHub API for retrieving repository activity data.
-
-```env
-GITHUB_TOKEN=your_github_token_here
-```
-
-## Prerequisites
-
-- Python 3.8+
-- GitHub Personal Access Token (add to `.env` file)
-- `poetry` package manager
 
 ## Usage
 
-Once installed, you can use the script to visualize a GitHub repository's workflow. The script supports filtering activities based on core branches or specific date ranges.
+Once installed, you can use the tool to visualize a GitHub repository's workflow. Below are some example commands:
 
 ```bash
-usage: analyze_workflow.py [-h] [--core_branches [CORE_BRANCHES ...]] [--start_date START_DATE] [--end_date END_DATE] url
+gitflow-visualizer https://github.com/SoftClassTeam4/Invaders
+```
+
+```bash
+gitflow-visualizer https://github.com/SoftClassTeam4/Invaders --start_date 2023-10-17 --end_date 2023-10-19
+```
+
+```bash
+usage: gitflow-visualizer [-h] [--core_branches [CORE_BRANCHES ...]] [--start_date START_DATE] [--end_date END_DATE] [--token TOKEN] url
+
+Visualize GitHub Repository Workflow Activities
 
 positional arguments:
   url                   GitHub repository URL
@@ -82,6 +77,7 @@ options:
   --start_date START_DATE
                         Start date in YYYY-MM-DD format
   --end_date END_DATE   End date in YYYY-MM-DD format
+  --token TOKEN         GitHub API token
 ```
 
 You can find some example outputs in the `images` directory.
