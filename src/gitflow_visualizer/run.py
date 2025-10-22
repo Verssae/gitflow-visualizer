@@ -91,7 +91,7 @@ def generate_workflow(activities, core_branches, team_info):
             actor_colors[actor] = colors[color_index % len(colors)]
             color_index += 1
 
-    actor_intro = ''.join(f' [{actor_colors[actor]}]󰙃 {actor}[/{actor_colors[actor]}]' for actor in actor_colors)
+    actor_intro = ''.join(f' [{actor_colors[actor]}]• {actor}[/{actor_colors[actor]}]' for actor in actor_colors)
     table.title = f"[bold]{team_info['team']}[/bold]\n{actor_intro}"
 
     for branch_name in branch_columns:
@@ -119,12 +119,12 @@ def generate_workflow(activities, core_branches, team_info):
     for timestamp, branch_name, activity, actor in activities: 
 
         cell = {
-            'branch_creation': f'┌─󱓊─┐',
-            'branch_deletion': f'└─󱓋─┘',
+            'branch_creation': f'┌─+─┐',
+            'branch_deletion': f'└─×─┘',
             'force_push': f'│~~│' if branch_status[branch_name] else f'~~',
             'push': f'│  │' if branch_status[branch_name] else f'',
             'pr_merge': f'│  │',
-        }.get(activity, f'󰀍')
+        }.get(activity, f'●')
 
         if activity == 'branch_creation':
             table.columns[branch_columns[branch_name]].header_style = 'not dim'
